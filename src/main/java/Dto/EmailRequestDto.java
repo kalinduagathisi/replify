@@ -1,8 +1,10 @@
 package Dto;
 
+import lombok.Builder;
 import lombok.Data;
 
-@Data // will generate getters, setters and constructors
+@Data
+@Builder// will generate getters, setters and constructors
 public class EmailRequestDto {
 
     private String emailContent;
