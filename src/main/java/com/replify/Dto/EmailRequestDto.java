@@ -1,4 +1,4 @@
-package Dto;
+package com.replify.Dto;
 
 import lombok.Builder;
 import lombok.Data;

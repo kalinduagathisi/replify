@@ -53,6 +53,14 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>io.netty</groupId>-->
+<!--			<artifactId>netty-resolver-dns-native-macos</artifactId>-->
+<!--			<version>4.1.97.Final</version> &lt;!&ndash; Use the same version as your Netty dependencies &ndash;&gt;-->
+<!--			<classifier>osx-aarch_64</classifier> &lt;!&ndash; Use this for Apple Silicon (M1/M2) &ndash;&gt;-->
+<!--		</dependency>-->
+
 	</dependencies>
 
 	<build>

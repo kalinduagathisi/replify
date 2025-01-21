@@ -1,6 +1,6 @@
-package Service;
+package com.replify.Service;
 
-import Dto.EmailRequestDto;
+import com.replify.Dto.EmailRequestDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,8 +17,8 @@ public class EmailGenerateService {
     private String geminiApiUrl;
     @Value("${gemini.api.key}")
     private String geminiApiKey;
-    public EmailGenerateService(WebClient webClient) {
-        this.webClient = webClient;
+    public EmailGenerateService(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder.build();
     }
 
     // generate email reply
@@ -41,6 +41,7 @@ public class EmailGenerateService {
         String response = webClient.post()
                 .uri(geminiApiUrl + geminiApiKey)
                 .header("Content-Type", "application/json")
+                .bodyValue(requestBody)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -55,7 +56,7 @@ public class EmailGenerateService {
             JsonNode rootNode = mapper.readTree(response);
             return rootNode.path("candidates")
                     .get(0)
-                    .path("contents")
+                    .path("content")
                     .path("parts")
                     .get(0)
                     .path("text")
