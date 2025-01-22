@@ -4,14 +4,12 @@ import com.replify.Dto.EmailRequestDto;
 import com.replify.Service.EmailGenerateService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/email")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class EmailGenerateController {
 
     private final EmailGenerateService emailGenerateService;
